@@ -8,9 +8,10 @@ import { selectFilter } from '../../redux/filterSlice';
 
 export const ListContacts = ({contacts}) => {
 	const dispatch = useDispatch();
+	// Получаем текущее значение с фильтра
   const filter = useSelector(selectFilter);
-	// console.log(contacts);
 
+	// Фильтруем все контакты по имени
 	const visibleContacts = contacts.filter(({ name }) =>
 	name.toLowerCase().includes(filter)
 	);

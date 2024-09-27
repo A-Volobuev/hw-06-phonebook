@@ -12,6 +12,7 @@ export const contactsSlice = createSlice({
   initialState: {contacts: defaultValue},
   reducers: {
     addContacts: (state, {payload}) => {
+      // Проверяем есть ли уже такой контакт в массиве (contacts)
       if (
         state.contacts.some(
           contact =>
@@ -21,17 +22,21 @@ export const contactsSlice = createSlice({
       ) { 
         alert(`${payload.name}is already in contacts.}`)
       } else {
+        // Сначала пушил, нашел метод, который добавляет не в конец, а в начало
         state.contacts.unshift(payload)
       }
     },
     deleteContact: (state, {payload}) => {
-      // const contact = state.contacts.find(element => element.id === payload);
+      // Возвращаем новый массив без элемента ид которых совпадают
       state.contacts = state.contacts.filter(contact => contact.id !== payload)
     }
 
   }
 });
 
+// Функции что бы добавить или удалить контакт
 export const {addContacts, deleteContact} = contactsSlice.actions;
+// Редюсер для стора
 export const contactsReducer = contactsSlice.reducer;
+// Текущий массив контактов
 export const selectContacts = state => state.contacts.contacts;

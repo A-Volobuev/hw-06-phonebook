@@ -13,15 +13,18 @@ export default function FormContacts({onSubmit}) {
 		e.preventDefault();
 		
     const form = e.target;
+		// Данные с инпутов
     const name = form.elements.name.value;
     const number = form.elements.number.value;
 
+		// создаем новый конткт
     const contact = {
       id: nanoid(),
       name,
       number,
     };
 
+		// Используем функцию с редюсера для добавления контакта в изначальный массив
     dispatch(addContacts(contact));
 
     form.reset();
@@ -54,8 +57,6 @@ export default function FormContacts({onSubmit}) {
 					title="Содержит только буквы, минимум 5"
 					maxLength="30"
 					required
-					// value={name}
-					// onChange={inputNameChange}
 					/>
 				</FormItem>
 
@@ -69,8 +70,6 @@ export default function FormContacts({onSubmit}) {
 					title="Номер телефона состоит из 7 цифр"
 					maxLength="7"
 					required
-					// value={number}
-					// onChange={inputNumberChange}
 					/>
 				</FormItem>
 

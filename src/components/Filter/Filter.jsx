@@ -6,6 +6,7 @@ import { onChangeFilter } from '../../redux/filterSlice';
 export const Filter = () => {
 	const dispatch = useDispatch();
 
+	// Передаем данные текст с фильтра в фильтерРедюс
 	const onInputValueChange = (e) => {
 		const inputValue = e.target.value;
 		dispatch(onChangeFilter(inputValue.toLowerCase()))
