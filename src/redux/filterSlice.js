@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 export const filterSlice = createSlice({
-  name: 'filters',
+  name: 'filter',
   initialState: { filter: ''},
 	reducers: {
     // action.payload - значение которое мы получаем (вводим в инпут)
